@@ -1,0 +1,39 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+
+td, th {
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 135%;
+    text-align: left;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+}
+
+th {
+    color: var(--text-h);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 118%;
+    letter-spacing: -0.24px;
+}
+
+thead > th {
+    height: 40px;
+}
+
+thead > tr:hover {
+    background-color: transparent !important;
+}
+
+tr {
+    height: 35px;
+}
+
+tr:hover {
+    background-color: var(--hover);
+}

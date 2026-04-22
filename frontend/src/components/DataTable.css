@@ -1,0 +1,28 @@
+
+
+.data-table-section {
+    margin:16px 0;
+}
+
+.data-table-top {
+    display: flex;
+    padding: 0 12px;
+    justify-content: space-between;
+}
+
+.btn {
+    padding: 0 16px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: #fff;
+    border-radius: 4px;
+    border-color: var(--accent);
+    transition: transform 0.2s ease;
+}
+
+.btn-primary:active{
+    transform: scale(0.95);
+}
