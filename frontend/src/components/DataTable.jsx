@@ -8,9 +8,7 @@ export default function DataTable({headers, data, title, onAdd}){
         <div className="data-table-top">
             <h2 className="data-table-title">{title}</h2>
             {onAdd &&
-            <Button label="Add" onClick={onAdd} className="btn-primary"/>
-
-        
+                <Button onClick={onAdd} className="btn-primary">Add</Button>
             }
         </div>
         <table className="data-table">

@@ -32,7 +32,6 @@ let navigate = useNavigate();
 
 
     function onAddApplication(){
-    console.log("Add Application Clicked");
     navigate("/jobs/add");
 }
 
