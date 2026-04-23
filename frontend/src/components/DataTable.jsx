@@ -1,3 +1,4 @@
+import Button from "./Button";
 import "./DataTable.css";
 import "/src/table.css";
 
@@ -6,11 +7,11 @@ export default function DataTable({headers, data, title, onAdd}){
     <section className="data-table-section">
         <div className="data-table-top">
             <h2 className="data-table-title">{title}</h2>
-            {onAdd && (
-                <button className="btn btn-primary" onClick={onAdd}>
-                Add
-            </button>
-            )}
+            {onAdd &&
+            <Button label="Add" onClick={onAdd} className="btn-primary"/>
+
+        
+            }
         </div>
         <table className="data-table">
             <thead>

@@ -1,4 +1,6 @@
+import { useNavigate } from "react-router-dom";
 import DataTable from "../components/DataTable"
+
 
 const headers = [
     { title: "Job Title", key: "jobTitle" },
@@ -23,10 +25,18 @@ const jobApplications = [
     }
 ];
 
-function onAddApplication(){
-    console.log("Add Application Clicked");
-}
+
 function Home(){
+
+let navigate = useNavigate();
+
+
+    function onAddApplication(){
+    console.log("Add Application Clicked");
+    navigate("/jobs/add");
+}
+
+
     return(
         <main>
         

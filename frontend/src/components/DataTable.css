@@ -10,10 +10,6 @@
     justify-content: space-between;
 }
 
-.btn {
-    padding: 0 16px;
-    cursor: pointer;
-}
 
 .btn-primary {
     background-color: var(--accent);
@@ -23,6 +19,4 @@
     transition: transform 0.2s ease;
 }
 
-.btn-primary:active{
-    transform: scale(0.95);
-}
+
