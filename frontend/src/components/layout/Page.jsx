@@ -9,8 +9,8 @@ export default function Page({ title, children }) {
     <section>
       <header style={{ margin: '24px 0', paddingBottom: '8px' }}>
         <div>
-          <strong>{title}</strong>
           <Breadcrumb />
+          <strong>{title}</strong>
         </div>
       </header>
       <main>{children}</main>

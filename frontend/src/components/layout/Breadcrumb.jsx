@@ -2,7 +2,7 @@ import { Link, useHref } from 'react-router-dom';
 import { capitalize } from '@/utilities/text';
 export default function Breadcrumb() {
   const breadcrumbStyle = {
-    fontSize: '0.8em',
+    fontSize: '0.7em',
     display: 'flex',
   };
   const href = useHref();
