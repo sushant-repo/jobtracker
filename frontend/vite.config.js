@@ -12,13 +12,21 @@ export default defineConfig({
       '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap'),
     },
   },
-  server: {
-    proxy: {
-      "/api": {
-        target: "https://localhost:7015",
-      changeOrigin: true,
-    secure: false
-      } 
-    }
-  }
+  css: {
+    preprocessorOptions: {
+      scss: {
+        quietDeps: true, // Silences warnings from node_modules
+      },
+    },
+  },
+  // server: {
+  //   proxy: {
+  //     '/api': {
+  //       target: 'https://localhost:7015/api',
+  //       changeOrigin: true,
+  //       secure: false,
+  //       rewrite: (path) => path.replace(/^\/api/, ''),
+  //     },
+  //   },
+  // },
 });
