@@ -20,5 +20,25 @@ namespace WebAPI.Data
         {
            builder.ApplyConfigurationsFromAssembly(typeof(AppDBContext).Assembly);
         }
+
+        public override async Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
+        {
+            var entries = ChangeTracker.Entries()
+                .Where(e => e.State == EntityState.Added || e.State == EntityState.Modified);
+
+            foreach (var entry in entries)
+            {
+                if (entry.State == EntityState.Added)
+                {
+                    entry.Property("CreatedOn").CurrentValue = DateTime.UtcNow;
+                }
+                if (entry.State == EntityState.Modified)
+                {
+                    entry.Property("ModifiedOn").CurrentValue = DateTime.UtcNow;
+                }
+            }
+
+            return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
+        }
     }
 }
