@@ -1,15 +1,16 @@
-import { createBrowserRouter, Outlet } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import AddJob from './pages/AddJob';
 import Home from './pages/Home';
+import Jobs from './pages/Jobs';
 import Header from './components/header/Header';
 import PageLayout from './components/layout/PageLayout';
 
-var router = createBrowserRouter([
+const router = createBrowserRouter([
   {
-    path: '/',
     Component: PageLayout,
     children: [
       { index: true, Component: Home },
+      { path: 'jobs', Component: Jobs },
       { path: 'jobs/add', Component: AddJob },
     ],
   },
