@@ -1,7 +1,5 @@
-import { useHref } from 'react-router-dom';
 import Button from '../Button';
 import './Page.css';
-import { useEffect } from 'react';
 import Breadcrumb from './Breadcrumb';
 
 export default function Page({ title, children }) {

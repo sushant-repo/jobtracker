@@ -22,7 +22,9 @@ describe('router configuration', () => {
     expect(rootRoute.element).toBeDefined();
 
     const homeRoute = rootRoute.children?.find((route) => route.index === true);
-    const addJobRoute = rootRoute.children?.find((route) => route.path === 'jobs/add');
+    const addJobRoute = rootRoute.children?.find(
+      (route) => route.path === 'jobs/add'
+    );
 
     expect(homeRoute?.element).toBeDefined();
     expect(addJobRoute?.element).toBeDefined();

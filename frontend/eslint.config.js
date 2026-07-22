@@ -7,6 +7,9 @@ import prettierConfig from 'eslint-config-prettier';
 import prettierPlugin from 'eslint-plugin-prettier';
 
 export default defineConfig([
+  {
+    ignores: ['dist', 'node_modules', 'vite.config.js', 'eslint.config.js'],
+  },
   globalIgnores(['dist']),
   {
     files: ['**/*.{js,jsx}'],

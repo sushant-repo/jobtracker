@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect, useContext } from 'react';
+import { useState } from 'react';
 import Page from '@/components/layout/Page';
 import TextField from '@/components/form/TextField';
 import Textarea from '@/components/form/Textarea';
@@ -7,11 +7,11 @@ import Select from '@/components/form/Select';
 import AmountField from '../components/form/AmountField';
 import DateField from '../components/form/DateField';
 import Form from '../components/form/Form';
-import {jobService} from "@/services/jobService";
-import useLoading from "@/hooks/useLoading";
+import { jobService } from '@/services/jobService';
+import useLoading from '@/hooks/useLoading';
 
 export default function AddJob() {
-  const {showLoading, hideLoading} = useLoading();
+  const { showLoading, hideLoading } = useLoading();
   const [job, setJob] = useState({
     title: '',
     description: '',
@@ -26,21 +26,27 @@ export default function AddJob() {
     location: '',
   });
 
-  function handleSubmit(e){
+  function handleSubmit(e) {
+    e.preventDefault();
+
     showLoading();
-        jobService.addJob(job, company);
-
+    try {
+      jobService.addJob(job, company);
+    } catch (error) {
+      console.error('Error adding job application:', error);
+    } finally {
+      hideLoading();
+    }
   }
 
-  function handleChange(e){
-    const {id, value} = e.target;
-    setJob({...job, [id]: value});
+  function handleChange(e) {
+    const { id, value } = e.target;
+    setJob({ ...job, [id]: value });
   }
-
 
   return (
     <Page title="Add Job">
-      <Form onSubmit={handleSubmit} >
+      <Form onSubmit={handleSubmit}>
         <div className="row">
           <div className="col">
             <TextField
@@ -87,19 +93,16 @@ export default function AddJob() {
               value={job.workArrangement}
               onChange={handleChange}
               required
-              options = {
-                [
-                  {label: 'Remote', value: 'remote'},
-                  {label: 'Onsite', value: 'onsite'},
-                  {label: 'Hybrid', value: 'hybrid'},
-                ]
-              }
+              options={[
+                { label: 'Remote', value: 'remote' },
+                { label: 'Onsite', value: 'onsite' },
+                { label: 'Hybrid', value: 'hybrid' },
+              ]}
             />
-              
           </div>
         </div>
 
-<div className="row">
+        <div className="row">
           <div className="col">
             <TextField
               label="Category"
@@ -118,7 +121,7 @@ export default function AddJob() {
               label="Company Name"
               id="companyName"
               value={company.name}
-              onChange={(e) => setCompany({...company, name: e.target.value})}
+              onChange={(e) => setCompany({ ...company, name: e.target.value })}
               required
             />
           </div>
@@ -130,7 +133,7 @@ export default function AddJob() {
               label="Company URL"
               id="companyUrl"
               value={company.url}
-              onChange={(e) => setCompany({...company, url: e.target.value})}
+              onChange={(e) => setCompany({ ...company, url: e.target.value })}
               required
             />
           </div>
@@ -142,15 +145,17 @@ export default function AddJob() {
               label="Company Location"
               id="location"
               value={company.location}
-              onChange={(e) => setCompany({...company, location: e.target.value})}
+              onChange={(e) =>
+                setCompany({ ...company, location: e.target.value })
+              }
               required
             />
           </div>
         </div>
 
-
-
-        <button type="submit" className="btn btn-success">Save</button>
+        <button type="submit" className="btn btn-success">
+          Save
+        </button>
       </Form>
     </Page>
   );

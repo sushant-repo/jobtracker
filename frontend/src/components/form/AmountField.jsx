@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import FormElement from './FormElement';
 
 export default function AmountField({

@@ -14,14 +14,16 @@ export default function Select({
         {label}
       </label>
       <select
-        className='form-select'
+        className="form-select"
         id={id}
         value={value}
         onChange={onChange}
         required={required}
         name={id}
       >
-        <option  disabled value="">Select {label}</option>
+        <option disabled value="">
+          Select {label}
+        </option>
         {options.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
