@@ -12,17 +12,17 @@ namespace WebAPI.Entities.Configuration
             entity.Property(j => j.Title).IsRequired().HasMaxLength(200);
             entity.Property(j => j.Description).IsRequired();
 
-            entity.Property(j => j.JobURL).IsRequired();
+            //entity.Property(j => j.JobURL).IsRequired();
 
-            entity.HasOne<ApplicationStatus>()
-                .WithMany()
-                .HasForeignKey(j => j.StatusId)
-                .OnDelete(DeleteBehavior.Restrict);
+            //entity.HasOne<ApplicationStatus>()
+            //    .WithMany()
+            //    .HasForeignKey(j => j.StatusId)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
-            entity.HasOne<Company>()
-                .WithMany()
-                .HasForeignKey(j => j.CompanyId)
-                .OnDelete(DeleteBehavior.Restrict);
+            //entity.HasOne<Company>()
+            //    .WithMany()
+            //    .HasForeignKey(j => j.CompanyId)
+            //    .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
